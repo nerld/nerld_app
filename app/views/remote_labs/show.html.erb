@@ -1,0 +1,86 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @remote_lab.title %>
+</p>
+
+<p>
+  <strong>Version:</strong>
+  <%= @remote_lab.version %>
+</p>
+
+<p>
+  <strong>Author:</strong>
+  <%= @remote_lab.author %>
+</p>
+
+<p>
+  <strong>School:</strong>
+  <%= @remote_lab.school %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @remote_lab.user_id %>
+</p>
+
+<p>
+  <strong>Lab type:</strong>
+  <%= @remote_lab.lab_type %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @remote_lab.password %>
+</p>
+
+<p>
+  <strong>Allowable time:</strong>
+  <%= @remote_lab.allowable_time %>
+</p>
+
+
+<table class="table">
+  <thead>
+    <th>Address</th>
+    <th>Type</th>
+    <th>State</th>
+    <th>Action</th>
+  </thead>
+  <tbody>
+  <% @remote_lab.slaves.each do |slave| %>
+    <tr>
+      <td><%=slave.address%></td>
+      <td><%=slave.s_type%></td>
+      <td><%=slave.state%></td>
+      <% if slave.s_type == 0 %>
+        <td>
+          <a class="switch-toggle btn btn-default btn-xs" data-id="<%=slave.id%>">
+            Toggle
+          </a>
+        </td>
+      <%end%>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<script>
+
+  $('.switch-toggle').on('click', function(e) {
+    var id = $(this).data('id');
+    var url = "/slave/switch/toggle";
+
+    $.ajax({
+      type: "POST",
+      url: url,
+      data: {id: id}
+    })
+  })
+
+</script>
+
+
+<%= link_to 'Edit', edit_remote_lab_path(@remote_lab) %> |
+<%= link_to 'Back', remote_labs_path %>

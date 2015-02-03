@@ -1,0 +1,2 @@
+module RemoteLabsHelper
+end

@@ -1,0 +1,39 @@
+<h1>Listing remote_labs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Version</th>
+      <th>Author</th>
+      <th>School</th>
+      <th>User</th>
+      <th>Lab type</th>
+      <th>Password</th>
+      <th>Allowable time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @remote_labs.each do |remote_lab| %>
+      <tr>
+        <td><%= remote_lab.title %></td>
+        <td><%= remote_lab.version %></td>
+        <td><%= remote_lab.author %></td>
+        <td><%= remote_lab.school %></td>
+        <td><%= remote_lab.user_id %></td>
+        <td><%= remote_lab.lab_type %></td>
+        <td><%= remote_lab.password %></td>
+        <td><%= remote_lab.allowable_time %></td>
+        <td><%= link_to 'Show', remote_lab %></td>
+        <td><%= link_to 'Edit', edit_remote_lab_path(remote_lab) %></td>
+        <td><%= link_to 'Destroy', remote_lab, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Remote lab', new_remote_lab_path %>

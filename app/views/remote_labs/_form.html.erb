@@ -1,0 +1,17 @@
+<%= simple_form_for(@remote_lab) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :version %>
+    <%= f.input :author %>
+    <%= f.input :school %>
+    <%= f.input :user_id %>
+    <%= f.input :lab_type %>
+    <%= f.input :allowable_time %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
