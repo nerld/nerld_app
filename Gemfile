@@ -19,6 +19,8 @@ gem 'simple_form'
 gem 'jquery-datatables-rails', '~> 3.1.1'
 gem 'font-awesome-rails'
 gem 'parsley-rails'
+gem 'websocket-eventmachine-server'
+gem "highcharts-rails", "~> 4.1.3"
 
 group :development do
   gem 'better_errors'

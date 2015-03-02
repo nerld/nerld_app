@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   post 'api/register_slave' => 'api#register_slave'
   get 'api/get_commands/:id' => 'api#get_commands'
   post 'api/complete_command' => 'api#complete_command'
+  post 'api/log_data_value' => 'api#post_data_value'
+  get 'api/data_values' => 'api#get_data_values'
 
   root to: 'visitors#index'
   devise_for :users
